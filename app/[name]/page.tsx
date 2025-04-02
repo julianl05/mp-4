@@ -26,18 +26,14 @@ export default function ResultsPage(){
             .catch((e: Error)=>console.log("There was an error fetching data", e));
     },[params.name,setSuperheroData]);
 
-    if (error) {
-        return <p>{error}</p>;
-    }
+    
 
     return(
         <>
-            <h1>Superhero Data</h1>
-            <h2>Results for:</h2>
+            <h1>Results for: {decodeURIComponent(String(params.name))}</h1>
+            { error ? <p>{error}</p> : null }
             <div>
-                { loading ? <p>Loading...</p> :
-                    <SuperheroDisplay data={superheroData} />
-                }
+                { loading ? <p>Loading...</p> :<SuperheroDisplay data={superheroData} />}
             </div>
         </>
     )

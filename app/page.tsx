@@ -6,6 +6,10 @@ export default function Home() {
   const router = useRouter();
   
   function handleClick(name: string) {
+    if (name === "") {
+      console.log("Please enter a name");
+      return;
+    }
     router.push(`/${name}`);
   };
   
@@ -17,7 +21,7 @@ export default function Home() {
           placeholder="e.g. batman"
           onChange={(e) => setName(e.target.value)}
         />
-        <button onClick={() => handleClick(name.replaceAll(" ", ""))}>Search</button>
+        <button onClick={() => handleClick(name)}>Search</button>
     </div>
   );
 }
