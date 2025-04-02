@@ -1,13 +1,18 @@
 "use client";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import { getSuperheroData } from "@/lib/getSuperheroData";
 import { Superhero } from "@/types";
+import SuperheroDisplay from "@/components/SuperheroDisplay";
+
 export default function ResultsPage(){
+    const params = useParams();
     const [superheroData, setSuperheroData] = useState<Superhero[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+
     useEffect(() => {
-        getSuperheroData()
+        getSuperheroData(params.name) 
             .then((data)=>{
                     console.log("Data fetched Successfully");
                     console.log(data);
@@ -19,7 +24,7 @@ export default function ResultsPage(){
                     setLoading(false);
                 })
             .catch((e: Error)=>console.log("There was an error fetching data", e));
-    },[setSuperheroData]);
+    },[params.name,setSuperheroData]);
 
     if (error) {
         return <p>{error}</p>;
@@ -31,21 +36,7 @@ export default function ResultsPage(){
             <h2>Results for:</h2>
             <div>
                 { loading ? <p>Loading...</p> :
-                    superheroData.map((superhero, index)=>(
-                        <div key={index}>
-                            <h2>{superhero.name}</h2>
-                            <img src={superhero.image.url} alt={superhero.name} />
-                            <h3>Powerstats</h3>
-                            <ul>
-                                <li>Intelligence: {superhero.powerstats.intelligence}</li>
-                                <li>Strength: {superhero.powerstats.strength}</li>
-                                <li>Speed: {superhero.powerstats.speed}</li>
-                                <li>Durability: {superhero.powerstats.durability}</li>
-                                <li>Power: {superhero.powerstats.power}</li>
-                                <li>Combat: {superhero.powerstats.combat}</li>
-                            </ul>
-                        </div>
-                    ))
+                    <SuperheroDisplay data={superheroData} />
                 }
             </div>
         </>
