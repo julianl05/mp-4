@@ -12,4 +12,7 @@ export type Superhero = {
     image:{
         url: string;
     }
+    biography: {
+        "full-name": string;
+    }
 }
