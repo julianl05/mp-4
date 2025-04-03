@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import './globals.css'
 
 export const metadata: Metadata = {
   title: "Superhero Powerstats Generator",
@@ -11,7 +12,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+  return(
     <html lang="en">
       <body>
         <Header />
