@@ -23,17 +23,20 @@ export default function ResultsPage(){
                     }
                     setLoading(false);
                 })
-            .catch((e: Error)=>console.log("There was an error fetching data", e));
+            .catch((e: Error)=> {
+                console.log("There was an error fetching data", e)
+                setError(e.message);
+            });
     },[params.name,setSuperheroData]);
 
     
 
     return(
         <>
-            <h1 className="text-center text-[calc(3px+1vw)] my-[2vh]">Results for: {decodeURIComponent(String(params.name))}</h1>
-            { error ? <p>{error}</p> : null }
+            <h1 className="text-center text-[calc(3px+1vw)] my-[2vh]">Results for: {decodeURIComponent(String(params.name))}</h1> 
+            { error ? <p className="text-center">{error}</p> : null }
             <div>
-                { loading ? <p>Loading...</p> :<SuperheroDisplay data={superheroData} />}
+                { loading ? <p className="text-center">Loading...</p> :<SuperheroDisplay data={superheroData} />}
             </div>
         </>
     )
