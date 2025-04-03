@@ -9,7 +9,7 @@ export default function SuperheroDisplay(props: {data: Superhero[]}) {
                     <h2 className="font-bold text-[calc(5px+1vw)]">{superhero.name}</h2>
                     <h3>Real Name: {superhero.biography["full-name"] != "" ? superhero.biography["full-name"] : "Unavailable"}</h3>
                     <div className="flex flex-row justify-center items-center w-full">
-                        <img className="w-[45%] border-2" src={superhero.image.url} alt={superhero.name} />
+                        <img className="w-[45%]" src={superhero.image.url} alt={superhero.name} />
                         <ul className="list-none p-0 m-[2vw] text-center w-[35%]">
                             <li className={powerstatStyling}>Intelligence: {superhero.powerstats.intelligence != "null" ? superhero.powerstats.intelligence : "Unavailable"}</li>
                             <li className={powerstatStyling}>Strength: {superhero.powerstats.strength != "null" ? superhero.powerstats.strength : "Unavailable"}</li>
