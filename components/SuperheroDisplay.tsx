@@ -1,7 +1,7 @@
 import { Superhero } from "@/types";
 
 export default function SuperheroDisplay(props: {data: Superhero[]}) {
-    const powerstatStyling= "m-[1vw] p-[1vw] text-[calc(3px+1vw)] bg-[#535C91] rounded-lg";
+    const powerstatStyling= "m-[1vw] p-[1vw] bg-[#535C91] rounded-lg";
     return(
         <div className="flex flex-row justify-center items-center flex-wrap w-full">
             {props.data.map((superhero: Superhero, index: number)=>(
