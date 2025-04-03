@@ -30,7 +30,7 @@ export default function ResultsPage(){
 
     return(
         <>
-            <h1>Results for: {decodeURIComponent(String(params.name))}</h1>
+            <h1 className="text-center text-[calc(3px+1vw)] my-[2vh]">Results for: {decodeURIComponent(String(params.name))}</h1>
             { error ? <p>{error}</p> : null }
             <div>
                 { loading ? <p>Loading...</p> :<SuperheroDisplay data={superheroData} />}

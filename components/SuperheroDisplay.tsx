@@ -41,11 +41,11 @@ import { Superhero } from "@/types";
 
 
 export default function SuperheroDisplay(props: {data: Superhero[]}) {
-    const powerstatStyling= "m-[1vw]"
+    const powerstatStyling= "m-[1vw] p-[1vw] text-[calc(3px+1vw)] bg-[#535C91] rounded-lg";
     return(
         <div className="flex flex-row justify-center items-center flex-wrap w-full">
             {props.data.map((superhero: Superhero, index: number)=>(
-                <div key={index} className="flex flex-col justify-center items-center m-[1vw] p-[2vw] rounded-lg w-[35vw] bg-[#f0f0f0] shadow-lg">
+                <div key={index} className="flex flex-col justify-center items-center m-[1vw] p-[2vw] rounded-lg w-[55vw] bg-[#31363F] shadow-lg">
                     <h2 className="font-bold text-[calc(5px+1vw)]">{superhero.name}</h2>
                     <h3>Real Name: {superhero.biography["full-name"]}</h3>
                     <div className="flex flex-row justify-center items-center">

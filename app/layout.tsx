@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return(
     <html lang="en">
-      <body className={`${geistMono.className} bg-[#222831] text-white`}>
+      <body className={`${geistMono.className} bg-[#222831] text-white text-[calc(3px+1vw)]`}>
         <Header />
         {children}
       </body>

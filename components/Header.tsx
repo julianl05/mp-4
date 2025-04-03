@@ -18,9 +18,9 @@ import Link from 'next/link';
 export default function Header() {
   return (
     <header className="text-[calc(10px+2vmin)] bg-[#222831] text-white p-[2vh] flex justify-between items-center border-b-4 border-[#535C91]">
-      <h1 className='text-bold mx-[4vw] my-[2vh]'>Superhero Stats Generator</h1>
+      <h1 className='text-bold mx-[4vw] my-[2vh]'>CS391 Superhero Searcher</h1>
       <nav>
-        <Link className="mx-[4vw] my-[vh] hover:underline hover:text-red-100 "href="/">
+        <Link className="mx-[4vw] my-[vh] hover:underline hover:text-[#EEEEEE] "href="/">
           Home
         </Link>
       </nav>
